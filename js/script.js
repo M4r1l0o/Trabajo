@@ -7,6 +7,26 @@ const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 const telaInicial = document.querySelector(".tela-inicial");
 const botaoIniciar = document.querySelector(".iniciar-btn");
+const telaJogo = document.querySelector(".game");
+const progressoEtapa = document.querySelector(".game-progress-value");
+const trilhaProgresso = document.querySelector(".game-progress-track");
+const preenchimentoProgresso = document.querySelector(".game-progress-fill");
+
+const etapasPorPergunta = {
+	0: 0,
+	1: 1,
+	2: 1,
+	3: 2,
+	7: 2,
+	4: 3,
+	8: 3,
+	5: 4,
+	9: 4,
+	6: 5,
+	10: 5,
+	11: 5,
+	12: 5
+};
 
 let atual = 0;
 let historiaFinal = "";
@@ -17,6 +37,7 @@ function iniciaJogo() {
 	atual = 0;
 	historiaFinal = "";
 	telaInicial.style.display = "none";
+	telaJogo.style.display = "block";
 	caixaResultado.style.display = "none";
 	textoResultado.textContent = "";
 	caixaPerguntas.style.display = "block";
@@ -26,6 +47,10 @@ function iniciaJogo() {
 
 function mostraPergunta() {
 	const perguntaAtual = perguntas[atual];
+	const etapaAtual = etapasPorPergunta[atual] ?? 0;
+	progressoEtapa.textContent = `${etapaAtual} / 5`;
+	trilhaProgresso.setAttribute("aria-valuenow", etapaAtual);
+	preenchimentoProgresso.style.width = `${etapaAtual * 20}%`;
 	caixaPerguntas.textContent = perguntaAtual.enunciado.replace(/você/gi, nome);
 	caixaAlternativas.replaceChildren();
 
@@ -71,6 +96,7 @@ function respostaSelecionada(opcaoSelecionada) {
 }
 
 telaInicial.style.display = "block";
+telaJogo.style.display = "none";
 caixaPerguntas.style.display = "none";
 caixaAlternativas.style.display = "none";
 caixaResultado.style.display = "none";

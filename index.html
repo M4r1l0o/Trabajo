@@ -41,9 +41,25 @@
 				</div>
 			</section>
 
-			<section class="game">
+			<section class="game" aria-label="Jogo de economia de água">
+				<div class="game-hud">
+					<div class="game-identity">
+						<span class="game-emblem" aria-hidden="true">H2O</span>
+						<span class="game-title"><span>MISSÃO ATIVA</span><strong>ECONOMIZAR ÁGUA</strong></span>
+					</div>
+					<div class="game-progress">
+						<div class="game-progress-copy">
+							<span>PROGRESSO DA MISSÃO</span>
+							<span class="game-progress-value">0 / 5</span>
+						</div>
+						<div class="game-progress-track" role="progressbar" aria-label="Etapas da missão" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+							<span class="game-progress-fill"></span>
+						</div>
+					</div>
+				</div>
 				<div class="game-layout">
 					<div class="question-column">
+						<p class="question-kicker"><span class="question-live-dot"></span>DECISÃO DA MISSÃO</p>
 						<h1 class="caixa-perguntas question-prompt" aria-live="polite"></h1>
 						<div class="caixa-alternativas" aria-label="Alternativas"></div>
 					</div>
