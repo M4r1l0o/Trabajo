@@ -89,6 +89,12 @@ main {
 }
 
 .welcome {
+	display: block;
+	padding: 0;
+	animation: none;
+}
+
+.welcome-layout {
 	display: grid;
 	min-height: 650px;
 	grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
@@ -221,22 +227,7 @@ h1 {
 }
 
 .game {
-	padding: 64px 0 82px;
-	animation: arrive 360ms ease-out both;
-}
-
-.game-heading {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 52px;
-	border-bottom: 1px solid var(--line);
-}
-
-.game-kicker {
-	color: var(--muted);
-	font-size: 10px;
-	font-weight: 700;
+	padding: 0;
 }
 
 .game-layout {
@@ -248,14 +239,22 @@ h1 {
 
 .question-column h1 {
 	max-width: 760px;
+	margin-top: 64px;
 	font-size: 48px;
 	line-height: 1.16;
 }
 
-.choices {
-	display: grid;
-	gap: 12px;
+.caixa-perguntas,
+.caixa-alternativas,
+.caixa-resultado {
+	display: none;
+}
+
+.caixa-alternativas {
+	flex-direction: column;
+	gap: 10px;
 	margin-top: 38px;
+	margin-bottom: 82px;
 }
 
 .choice {
@@ -295,6 +294,7 @@ h1 {
 	background: #e8e8df;
 	color: #838d86;
 	cursor: not-allowed;
+	opacity: 0.5;
 }
 
 .choice:disabled::after {
@@ -372,7 +372,7 @@ h1 {
 		padding: 0 22px;
 	}
 
-	.welcome {
+	.welcome-layout {
 		min-height: auto;
 		grid-template-columns: 1fr;
 		gap: 48px;
@@ -391,19 +391,8 @@ h1 {
 		min-height: 280px;
 	}
 
-	.game {
-		padding: 44px 0 60px;
-	}
-
-	.game-heading {
-		align-items: flex-start;
-		gap: 12px;
-		margin-bottom: 34px;
-	}
-
-	.game-kicker {
-		max-width: 105px;
-		text-align: right;
+	.caixa-alternativas {
+		margin-bottom: 60px;
 	}
 
 	.game-layout {

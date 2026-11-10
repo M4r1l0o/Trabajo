@@ -6,7 +6,6 @@
 		<meta name="theme-color" content="#183b3a">
 		<title>Consumo consciente de água</title>
 		<link rel="stylesheet" href="./style.css">
-		<script type="module" src="./js/script.js"></script>
 	</head>
 	<body>
 		<header class="masthead">
@@ -18,42 +17,40 @@
 		</header>
 
 		<main>
-			<section class="welcome" id="tela-inicial">
-				<div class="welcome-copy">
-					<p class="eyebrow"><span class="eyebrow-line"></span>Consumo e economia</p>
-					<h1>Cada gota<br>conta<span class="title-dot">.</span></h1>
-					<p class="welcome-text">
-						Uma conta de água alta pode ter várias causas. Observe seus hábitos,
-						investigue mudanças no consumo e descubra maneiras de economizar.
-					</p>
-					<button class="start-button" id="iniciar" type="button">
-						<span>Iniciar história</span><span class="button-arrow" aria-hidden="true">↗</span>
-					</button>
-				</div>
-				<div class="welcome-visual" aria-hidden="true">
-					<div class="visual-frame">
-						<div class="visual-topline"><span>CONSUMO</span><span>ECONOMIA</span></div>
-						<img class="water-illustration" src="./assets/economia-agua.svg" alt="Torneira fechada ao lado de um medidor que indica redução no consumo de água.">
-						<div class="visual-caption"><span>Menos desperdício.</span><span>Mais cuidado.</span></div>
+			<section class="welcome tela-inicial">
+				<div class="welcome-layout">
+					<div class="welcome-copy">
+						<p class="eyebrow"><span class="eyebrow-line"></span>Consumo e economia</p>
+						<h1>Cada gota<br>conta<span class="title-dot">.</span></h1>
+						<p class="welcome-text">
+							Uma conta de água alta pode ter várias causas. Observe seus hábitos,
+							investigue mudanças no consumo e descubra maneiras de economizar.
+						</p>
+						<button class="start-button iniciar-btn" type="button">
+							<span>Iniciar história</span><span class="button-arrow" aria-hidden="true">↗</span>
+						</button>
 					</div>
-					<span class="visual-index">SINAL 01</span>
+					<div class="welcome-visual">
+						<div class="visual-frame">
+							<div class="visual-topline"><span>CONSUMO</span><span>ECONOMIA</span></div>
+							<img class="water-illustration" src="./assets/economia-agua.svg" alt="Torneira fechada ao lado de um medidor que indica redução no consumo de água.">
+							<div class="visual-caption"><span>Menos desperdício.</span><span>Mais cuidado.</span></div>
+						</div>
+						<span class="visual-index">SINAL 01</span>
+					</div>
 				</div>
 			</section>
 
-			<section class="game" id="tela-jogo" hidden>
-				<div class="game-heading">
-					<p class="eyebrow"><span class="eyebrow-line"></span><span id="marcador">Uma nova situação</span></p>
-					<p class="game-kicker">ESCOLHA COM ATENÇÃO</p>
-				</div>
+			<section class="game">
 				<div class="game-layout">
 					<div class="question-column">
-						<h1 id="enunciado" aria-live="polite"></h1>
-						<div class="choices" id="alternativas" aria-label="Alternativas"></div>
-						<p class="continuation" id="continuidade" hidden>Ponto de continuidade desta etapa.</p>
+						<h1 class="caixa-perguntas question-prompt" aria-live="polite"></h1>
+						<div class="caixa-alternativas" aria-label="Alternativas"></div>
 					</div>
-					<aside class="history" aria-label="História da partida">
+					<aside class="history caixa-resultado" aria-label="História da partida">
 						<p class="history-title"><span class="history-dot"></span>REGISTRO DA HISTÓRIA</p>
-						<p class="history-text" id="historia-final" aria-live="polite">Suas decisões aparecerão aqui.</p>
+						<p class="history-text texto-resultado" aria-live="polite"></p>
+						<button class="novamente-btn" type="button">Iniciar novamente</button>
 					</aside>
 				</div>
 			</section>
@@ -63,5 +60,6 @@
 			<span>MATEMÁTICA II · PROGRAMAÇÃO</span>
 			<span>ÁGUA, CONSUMO E COMUNIDADE</span>
 		</footer>
+		<script type="module" src="js/script.js"></script>
 	</body>
 </html>
