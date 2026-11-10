@@ -187,26 +187,11 @@ h1 {
 	color: var(--white);
 }
 
-.visual-frame::before,
-.visual-frame::after {
-	position: absolute;
-	content: "";
-	border: 1px solid rgb(255 254 250 / 18%);
-	border-radius: 50%;
-}
-
-.visual-frame::before {
-	width: 340px;
-	height: 340px;
-	top: 12%;
-	left: 12%;
-}
-
-.visual-frame::after {
-	width: 250px;
-	height: 250px;
-	top: 24%;
-	left: 24%;
+.water-illustration {
+	display: block;
+	width: 100%;
+	max-height: 290px;
+	object-fit: contain;
 }
 
 .visual-topline,
@@ -218,44 +203,6 @@ h1 {
 	font-size: 10px;
 	font-weight: 700;
 	text-transform: uppercase;
-}
-
-.signal-mark {
-	position: absolute;
-	inset: 0;
-	display: grid;
-	place-items: center;
-}
-
-.signal-ring {
-	position: absolute;
-	display: block;
-	border: 1px solid var(--green-bright);
-	border-radius: 50%;
-}
-
-.signal-ring-outer {
-	width: 148px;
-	height: 148px;
-}
-
-.signal-ring-inner {
-	width: 90px;
-	height: 90px;
-	border-color: var(--yellow);
-}
-
-.signal-core {
-	position: relative;
-	display: grid;
-	width: 56px;
-	aspect-ratio: 1;
-	place-items: center;
-	border-radius: 50%;
-	background: var(--yellow);
-	color: var(--ink);
-	font-family: Georgia, serif;
-	font-size: 28px;
 }
 
 .visual-caption span:last-child {
