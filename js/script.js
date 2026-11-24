@@ -5,6 +5,7 @@ const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
+const botaoNovamente = document.querySelector(".novamente-btn");
 const telaInicial = document.querySelector(".tela-inicial");
 const botaoIniciar = document.querySelector(".iniciar-btn");
 const telaJogo = document.querySelector(".game");
@@ -32,6 +33,7 @@ let atual = 0;
 let historiaFinal = "";
 
 botaoIniciar.addEventListener("click", iniciaJogo);
+botaoNovamente.addEventListener("click", iniciaJogo);
 
 function iniciaJogo() {
 	atual = 0;
@@ -76,6 +78,15 @@ function respostaSelecionada(opcaoSelecionada) {
 		return;
 	}
 
+	if (opcaoSelecionada.tipo === "gameover") {
+		historiaFinal += aleatorio(opcaoSelecionada.afirmacao) + " ";
+		caixaPerguntas.textContent = "Fim de jogo! Essa escolha encerrou a missão.";
+		caixaAlternativas.style.display = "none";
+		caixaResultado.style.display = "block";
+		textoResultado.textContent = historiaFinal;
+		return;
+	}
+
 	const destino = opcaoSelecionada.proxima;
 	if (!Number.isInteger(destino) || perguntas[destino] === undefined) {
 		console.error("Destino inválido:", destino);
@@ -84,8 +95,13 @@ function respostaSelecionada(opcaoSelecionada) {
 
 	const origem = perguntas[atual];
 	const chegada = perguntas[destino];
-	if (atual !== 0 && origem.caminho !== chegada.caminho) {
-		console.error("A troca de caminho será implementada na Parte 4.");
+	const mudouDeCaminho = origem.caminho !== chegada.caminho;
+	if (atual !== 0 && mudouDeCaminho && opcaoSelecionada.tipo !== "trocar") {
+		console.error("Mudança de caminho sem o tipo trocar.");
+		return;
+	}
+	if (opcaoSelecionada.tipo === "trocar" && !mudouDeCaminho) {
+		console.error("A troca deve levar a outro caminho.");
 		return;
 	}
 

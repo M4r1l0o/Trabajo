@@ -1,13 +1,13 @@
 // PARTE 2: dados das duas narrativas.
 // entrada = escolha inicial; avancar = próxima etapa da narrativa;
 // salto = avanço ou retorno específico dentro da mesma narrativa.
-// trocar e gameover ficam desativados nesta versão de estudo.
+// As alternativas de gameover encerram a partida.
 export const perguntas = [
 	{ // 0 — pergunta inicial
 		caminho: "inicio",
 		enunciado:
-			"Ao chegar em casa, você percebe que o consumo de água aumentou. " +
-			"Como começa a investigar?",
+			"Alerta de missão: ao chegar em casa, você percebe que o consumo de água " +
+			"aumentou. Qual será seu primeiro passo para investigar?",
 		alternativas: [
 			{
 				texto: "Quero observar meus hábitos e descobrir onde posso economizar.",
@@ -24,9 +24,8 @@ export const perguntas = [
 	{ // 1 — A1: início da experimentação
 		caminho: "A",
 		enunciado:
-			"Você decide observar os hábitos de consumo. Na mesma semana, " +
-			"a professora propõe um trabalho sobre economia de água. " +
-			"Como você pretende começar?",
+			"A missão começa: você observa os hábitos de consumo e, na mesma semana, " +
+			"a professora propõe um desafio sobre economia de água. Qual será sua primeira ação?",
 		alternativas: [
 			{
 				texto: "Registrar por alguns dias o tempo de banho e o uso das torneiras.",
@@ -41,15 +40,15 @@ export const perguntas = [
 			{
 				texto: "Investigar o aumento de consumo percebido por moradores.",
 				afirmacao: ["Decidiu investigar o aumento de consumo no bairro."],
-				tipo: "trocar", proxima: 2, disponivel: false
+				tipo: "trocar", proxima: 2, disponivel: true
 			}
 		]
 	},
 	{ // 2 — B1: início da investigação
 		caminho: "B",
 		enunciado:
-			"A conta chega com um consumo bem maior, mas sua rotina parece " +
-			"a mesma. O que você pretende fazer?",
+			"A conta chegou com um consumo bem maior, mas sua rotina parece a mesma. " +
+			"Que pista você vai investigar primeiro?",
 		alternativas: [
 			{
 				texto: "Comparar as leituras dos últimos meses e procurar variações.",
@@ -64,15 +63,15 @@ export const perguntas = [
 			{
 				texto: "Levar os dados da conta para o trabalho escolar sobre economia.",
 				afirmacao: ["Levou os dados de consumo para o trabalho escolar."],
-				tipo: "trocar", proxima: 1, disponivel: false
+				tipo: "trocar", proxima: 1, disponivel: true
 			}
 		]
 	},
 	{ // 3 — A2: conferir informações
 		caminho: "A",
 		enunciado:
-			"Uma publicação diz que uma mudança simples economiza uma " +
-			"quantidade exata de água, mas não cita a fonte. Qual atitude você toma?",
+			"Nova pista: uma publicação promete uma economia exata de água, mas não " +
+			"mostra a fonte. Como você vai verificar essa informação?",
 		alternativas: [
 			{
 				texto: "Conferir a estimativa em fontes confiáveis antes de usar no projeto.",
@@ -87,15 +86,15 @@ export const perguntas = [
 			{
 				texto: "Inventar uma fonte e apresentá-la como verdadeira.",
 				afirmacao: ["Inventou uma fonte para sustentar a estimativa de economia."],
-				tipo: "gameover", disponivel: false
+				tipo: "gameover", disponivel: true
 			}
 		]
 	},
 	{ // 4 — A3: planejar a demonstração
 		caminho: "A",
 		enunciado:
-			"Você vai apresentar maneiras de reduzir o consumo de água. " +
-			"Como preparar uma demonstração para a turma?",
+			"Hora de preparar sua demonstração para a turma: como você vai mostrar " +
+			"maneiras de reduzir o consumo de água?",
 		alternativas: [
 			{
 				texto: "Comparar com recipientes medidores duas rotinas de uso da torneira.",
@@ -110,15 +109,15 @@ export const perguntas = [
 			{
 				texto: "Usar a investigação da conta alta para orientar os moradores.",
 				afirmacao: ["Decidiu ajudar os moradores a investigar o consumo."],
-				tipo: "trocar", proxima: 8, disponivel: false
+				tipo: "trocar", proxima: 8, disponivel: true
 			}
 		]
 	},
 	{ // 5 — A4: revisar o material
 		caminho: "A",
 		enunciado:
-			"Um colega observa que a economia estimada pode variar entre " +
-			"as famílias. O que você faz?",
+			"Revisão da missão: um colega lembra que a economia pode variar entre " +
+			"as famílias. Como você ajusta sua estratégia?",
 		alternativas: [
 			{
 				texto: "Explicar as condições usadas no cálculo e os limites da estimativa.",
@@ -133,15 +132,15 @@ export const perguntas = [
 			{
 				texto: "Prometer a mesma redução para todas as casas sem medir o consumo.",
 				afirmacao: ["Prometeu uma economia igual para todas as casas sem medições."],
-				tipo: "gameover", disponivel: false
+				tipo: "gameover", disponivel: true
 			}
 		]
 	},
 	{ // 6 — A5: organizar a apresentação
 		caminho: "A",
 		enunciado:
-			"Antes da apresentação, você decide como organizar " +
-			"o trabalho sobre economia de água. Qual será sua atitude?",
+			"Reta final da preparação: como você vai organizar o trabalho antes " +
+			"da apresentação sobre economia de água?",
 		alternativas: [
 			{
 				texto: "Organizar os dados, as estimativas e as sugestões práticas.",
@@ -156,15 +155,15 @@ export const perguntas = [
 			{
 				texto: "Levar o material ao encontro de orientação dos moradores.",
 				afirmacao: ["Decidiu levar as sugestões de economia ao encontro dos moradores."],
-				tipo: "trocar", proxima: 10, disponivel: false
+				tipo: "trocar", proxima: 10, disponivel: true
 			}
 		]
 	},
 	{ // 7 — B2: conferir a origem do áudio
 		caminho: "B",
 		enunciado:
-			"A comparação mostra um aumento repentino no consumo. " +
-			"Como continuar a investigação?",
+			"A comparação revelou um aumento repentino no consumo. Qual será seu " +
+			"próximo passo na investigação?",
 		alternativas: [
 			{
 				texto: "Conferir o hidrômetro e pedir orientação à companhia de água.",
@@ -179,16 +178,16 @@ export const perguntas = [
 			{
 				texto: "Acusar um morador de desperdiçar água sem qualquer prova.",
 				afirmacao: ["Acusou um morador de desperdício sem provas."],
-				tipo: "gameover", disponivel: false
+				tipo: "gameover", disponivel: true
 			}
 		]
 	},
 	{ // 8 — B3: planejar a orientação
 		caminho: "B",
 		enunciado:
-			"A companhia orienta verificar possíveis vazamentos e explica " +
-			"como comunicar um problema. Você decide ajudar os moradores " +
-			"a economizar água. Como agir?",
+			"A companhia de água deixou uma pista: é preciso verificar possíveis " +
+			"vazamentos e comunicar o problema. Como você vai ajudar os moradores " +
+			"a economizar água?",
 		alternativas: [
 			{
 				texto: "Preparar uma campanha de dicas e conferir cada recomendação.",
@@ -203,15 +202,15 @@ export const perguntas = [
 			{
 				texto: "Transformar as contas em uma atividade de estimativa na escola.",
 				afirmacao: ["Decidiu preparar uma atividade sobre consumo na escola."],
-				tipo: "trocar", proxima: 4, disponivel: false
+				tipo: "trocar", proxima: 4, disponivel: true
 			}
 		]
 	},
 	{ // 9 — B4: revisar a campanha
 		caminho: "B",
 		enunciado:
-			"Ao revisar a campanha, surge uma dúvida sobre quanto cada " +
-			"dica realmente economiza. Como você responde?",
+			"Na revisão da campanha, surge uma dúvida: quanto cada dica realmente " +
+			"economiza? Como você responde ao desafio?",
 		alternativas: [
 			{
 				texto: "Explicar que a economia depende dos hábitos de cada casa.",
@@ -226,15 +225,15 @@ export const perguntas = [
 			{
 				texto: "Divulgar uma economia garantida sem comprovar o resultado.",
 				afirmacao: ["Divulgou uma promessa de economia sem comprovação."],
-				tipo: "gameover", disponivel: false
+				tipo: "gameover", disponivel: true
 			}
 		]
 	},
 	{ // 10 — B5: organizar o encontro
 		caminho: "B",
 		enunciado:
-			"Você prepara um encontro sobre consumo de água. O que " +
-			"precisa fazer antes de apresentar o material?",
+			"O encontro com os moradores está chegando. O que falta fazer antes " +
+			"de apresentar seu material?",
 		alternativas: [
 			{
 				texto: "Organizar dicas para acompanhar o consumo e evitar desperdícios.",
@@ -249,7 +248,7 @@ export const perguntas = [
 			{
 				texto: "Publicar a conta de água de um morador sem autorização.",
 				afirmacao: ["Expôs a conta de água de um morador sem autorização."],
-				tipo: "gameover", disponivel: false
+				tipo: "gameover", disponivel: true
 			}
 		]
 	},
@@ -257,16 +256,16 @@ export const perguntas = [
 		caminho: "A",
 		pausa: true,
 		enunciado:
-			"Seu material sobre consumo e economia está organizado para a " +
-			"apresentação na escola. O próximo desafio será compartilhar as propostas.",
+			"Etapa concluída! Seu material está pronto para a apresentação na escola. " +
+			"O próximo desafio será compartilhar suas propostas.",
 		alternativas: []
 	},
 	{ // 12 — ponto de continuidade da narrativa B
 		caminho: "B",
 		pausa: true,
 		enunciado:
-			"Suas orientações para economizar água estão organizadas para o " +
-			"encontro com os moradores. O próximo desafio será compartilhar as dicas.",
+			"Etapa concluída! Suas orientações estão prontas para o encontro com os " +
+			"moradores. O próximo desafio será compartilhar as dicas.",
 		alternativas: []
 	}
 ];
