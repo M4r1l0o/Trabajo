@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="theme-color" content="#183b3a">
+		<meta name="theme-color" content="#07182e">
 		<title>Missão H2O: cada gota conta</title>
 		<link rel="stylesheet" href="./style.css">
 	</head>
@@ -17,6 +17,19 @@
 		</header>
 
 		<main>
+			<section class="name-screen tela-nome" aria-labelledby="name-title">
+				<p class="eyebrow"><span class="eyebrow-line"></span>Identificação do agente</p>
+				<h1 id="name-title">Como podemos chamar você?</h1>
+				<p class="welcome-text">Informe seu nome para entrar na missão.</p>
+				<form class="name-form">
+					<label for="nome-jogador">Seu nome</label>
+					<input id="nome-jogador" name="nome" type="text" autocomplete="given-name" required>
+					<button class="start-button" type="submit">
+						<span>Continuar</span><span class="button-arrow" aria-hidden="true">↗</span>
+					</button>
+				</form>
+			</section>
+
 			<section class="welcome tela-inicial">
 				<div class="welcome-layout">
 					<div class="welcome-copy">

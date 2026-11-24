@@ -1,6 +1,9 @@
 import { perguntas } from "./perguntas.js";
-import { aleatorio, nome } from "./aleatorio.js";
+import { aleatorio } from "./aleatorio.js";
 
+const telaNome = document.querySelector(".tela-nome");
+const formularioNome = document.querySelector(".name-form");
+const campoNome = document.querySelector("#nome-jogador");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
@@ -33,9 +36,25 @@ const etapasPorPergunta = {
 let atual = 0;
 let historiaFinal = "";
 let faseDaPartida = "inicio";
+let nomeJogador = "";
 
+formularioNome.addEventListener("submit", defineNome);
 botaoIniciar.addEventListener("click", iniciaJogo);
 botaoJogarNovamente.addEventListener("click", reiniciaJogo);
+
+function defineNome(evento) {
+	evento.preventDefault();
+	const nomeInformado = campoNome.value.trim();
+	if (!nomeInformado) {
+		campoNome.value = "";
+		campoNome.reportValidity();
+		return;
+	}
+
+	nomeJogador = nomeInformado;
+	telaNome.style.display = "none";
+	telaInicial.style.display = "block";
+}
 
 function iniciaJogo() {
 	reiniciaJogo();
@@ -55,11 +74,16 @@ function reiniciaJogo() {
 	caixaAlternativas.replaceChildren();
 	tituloResultado.textContent = "";
 	textoResultado.textContent = "";
-	telaInicial.style.display = "block";
+	telaNome.style.display = nomeJogador ? "none" : "block";
+	telaInicial.style.display = nomeJogador ? "block" : "none";
 	telaJogo.style.display = "none";
 	caixaPerguntas.style.display = "none";
 	caixaAlternativas.style.display = "none";
 	caixaResultado.style.display = "none";
+}
+
+function personalizaTexto(texto) {
+	return texto.replace(/você/gi, () => nomeJogador);
 }
 
 function mostraPergunta() {
@@ -74,7 +98,7 @@ function mostraPergunta() {
 		return;
 	}
 
-	caixaPerguntas.textContent = perguntaAtual.enunciado.replace(/você/gi, nome);
+	caixaPerguntas.textContent = personalizaTexto(perguntaAtual.enunciado);
 	caixaAlternativas.replaceChildren();
 
 	for (const alternativa of perguntaAtual.alternativas) {
@@ -112,6 +136,11 @@ function respostaSelecionada(opcaoSelecionada) {
 		return;
 	}
 
+	if (opcaoSelecionada.tipo !== "trocar" && destino <= atual) {
+		console.error("A escolha não pode voltar para uma etapa anterior.");
+		return;
+	}
+
 	const origem = perguntas[atual];
 	const chegada = perguntas[destino];
 	const mudouDeCaminho = origem.caminho !== chegada.caminho;
@@ -138,7 +167,7 @@ function mostraGameOver(mensagem) {
 	caixaResultado.style.display = "block";
 	tituloResultado.textContent = "GAME OVER";
 	textoResultado.textContent =
-		mensagem + "\n\nSuas escolhas nesta tentativa:\n" + historiaFinal;
+		personalizaTexto(mensagem) + "\n\nSuas escolhas nesta tentativa:\n" + historiaFinal;
 	botaoJogarNovamente.textContent = "Recomeçar do início";
 }
 
@@ -154,7 +183,7 @@ function mostraVitoria(mensagem) {
 	caixaResultado.style.display = "block";
 	tituloResultado.textContent = "THE END";
 	textoResultado.textContent =
-		mensagem + "\n\nSeu percurso nesta partida:\n" + historiaFinal;
+		personalizaTexto(mensagem) + "\n\nSeu percurso nesta partida:\n" + historiaFinal;
 	botaoJogarNovamente.textContent = "Jogar novamente";
 }
 

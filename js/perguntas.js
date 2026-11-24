@@ -1,6 +1,6 @@
 // PARTE 2: dados das duas narrativas.
 // entrada = escolha inicial; avancar = próxima etapa da narrativa;
-// salto = avanço ou retorno específico dentro da mesma narrativa.
+// salto = avanço para uma etapa posterior dentro da mesma narrativa.
 // As alternativas de gameover encerram a partida.
 export const perguntas = [
 	{ // 0 — pergunta inicial
@@ -79,9 +79,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 4
 			},
 			{
-				texto: "Voltar aos registros e calcular uma estimativa com seus dados.",
-				afirmacao: ["Retomou os registros para calcular uma estimativa própria."],
-				tipo: "salto", proxima: 1
+				texto: "Usar os registros para conferir uma estimativa de economia.",
+				afirmacao: ["Usou os registros para conferir a estimativa de economia."],
+				tipo: "salto", proxima: 5
 			},
 			{
 				texto: "Inventar uma fonte e apresentá-la como verdadeira.",
@@ -129,9 +129,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 6
 			},
 			{
-				texto: "Voltar aos registros para conferir o cálculo.",
-				afirmacao: ["Voltou aos registros para revisar o cálculo de consumo."],
-				tipo: "salto", proxima: 3
+				texto: "Revisar os dados e preparar a apresentação.",
+				afirmacao: ["Revisou os dados antes de preparar a apresentação."],
+				tipo: "salto", proxima: 6
 			},
 			{
 				texto: "Publicar dados pessoais dos colegas sem autorização.",
@@ -156,9 +156,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 11
 			},
 			{
-				texto: "Voltar à revisão para explicar melhor o cálculo da economia.",
-				afirmacao: ["Retomou a revisão do cálculo de economia."],
-				tipo: "salto", proxima: 5
+				texto: "Concluir a organização e apresentar o trabalho à turma.",
+				afirmacao: ["Concluiu a organização e apresentou o trabalho à turma."],
+				tipo: "salto", proxima: 11
 			},
 			{
 				texto: "Levar o material ao encontro de orientação dos moradores.",
@@ -179,9 +179,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 8
 			},
 			{
-				texto: "Retomar as contas anteriores e comparar os mesmos períodos.",
-				afirmacao: ["Retomou as contas anteriores para comparar o consumo."],
-				tipo: "salto", proxima: 2
+				texto: "Usar os dados comparados para preparar uma orientação aos moradores.",
+				afirmacao: ["Usou os dados comparados para preparar uma orientação aos moradores."],
+				tipo: "salto", proxima: 9
 			},
 			{
 				texto: "Acusar publicamente um colega sem qualquer prova.",
@@ -230,9 +230,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 10
 			},
 			{
-				texto: "Voltar às fontes para conferir as estimativas.",
-				afirmacao: ["Retomou as fontes para conferir as estimativas de economia."],
-				tipo: "salto", proxima: 7
+				texto: "Revisar as recomendações antes de organizar o encontro.",
+				afirmacao: ["Revisou as recomendações antes de organizar o encontro."],
+				tipo: "salto", proxima: 10
 			},
 			{
 				texto: "Criar outro áudio falso e divulgá-lo como verdadeiro.",
@@ -258,9 +258,9 @@ export const perguntas = [
 				tipo: "avancar", proxima: 12
 			},
 			{
-				texto: "Voltar à revisão para conferir as estimativas de economia.",
-				afirmacao: ["Voltou à revisão das estimativas de economia."],
-				tipo: "salto", proxima: 9
+				texto: "Concluir o material e apresentar as orientações aos moradores.",
+				afirmacao: ["Concluiu o material e apresentou as orientações aos moradores."],
+				tipo: "salto", proxima: 12
 			},
 			{
 				texto: "Expor conversas privadas de moradores sem autorização.",
