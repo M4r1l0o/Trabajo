@@ -4,8 +4,9 @@ import { aleatorio, nome } from "./aleatorio.js";
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
+const tituloResultado = document.querySelector(".titulo-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
-const botaoNovamente = document.querySelector(".novamente-btn");
+const botaoJogarNovamente = document.querySelector(".novamente-btn");
 const telaInicial = document.querySelector(".tela-inicial");
 const botaoIniciar = document.querySelector(".iniciar-btn");
 const telaJogo = document.querySelector(".game");
@@ -31,20 +32,34 @@ const etapasPorPergunta = {
 
 let atual = 0;
 let historiaFinal = "";
+let faseDaPartida = "inicio";
 
 botaoIniciar.addEventListener("click", iniciaJogo);
-botaoNovamente.addEventListener("click", iniciaJogo);
+botaoJogarNovamente.addEventListener("click", reiniciaJogo);
 
 function iniciaJogo() {
-	atual = 0;
-	historiaFinal = "";
+	reiniciaJogo();
+	faseDaPartida = "jogando";
 	telaInicial.style.display = "none";
 	telaJogo.style.display = "block";
-	caixaResultado.style.display = "none";
-	textoResultado.textContent = "";
 	caixaPerguntas.style.display = "block";
 	caixaAlternativas.style.display = "flex";
 	mostraPergunta();
+}
+
+function reiniciaJogo() {
+	atual = 0;
+	historiaFinal = "";
+	faseDaPartida = "inicio";
+	caixaPerguntas.textContent = "";
+	caixaAlternativas.replaceChildren();
+	tituloResultado.textContent = "";
+	textoResultado.textContent = "";
+	telaInicial.style.display = "block";
+	telaJogo.style.display = "none";
+	caixaPerguntas.style.display = "none";
+	caixaAlternativas.style.display = "none";
+	caixaResultado.style.display = "none";
 }
 
 function mostraPergunta() {
@@ -74,16 +89,18 @@ function mostraPergunta() {
 }
 
 function respostaSelecionada(opcaoSelecionada) {
+	if (faseDaPartida !== "jogando") {
+		return;
+	}
+
 	if (opcaoSelecionada.disponivel === false) {
 		return;
 	}
 
 	if (opcaoSelecionada.tipo === "gameover") {
-		historiaFinal += aleatorio(opcaoSelecionada.afirmacao) + " ";
-		caixaPerguntas.textContent = "Fim de jogo! Essa escolha encerrou a missão.";
-		caixaAlternativas.style.display = "none";
-		caixaResultado.style.display = "block";
-		textoResultado.textContent = historiaFinal;
+		const afirmacao = aleatorio(opcaoSelecionada.afirmacao);
+		historiaFinal += afirmacao + " ";
+		mostraGameOver(opcaoSelecionada.mensagem);
 		return;
 	}
 
@@ -111,8 +128,16 @@ function respostaSelecionada(opcaoSelecionada) {
 	mostraPergunta();
 }
 
-telaInicial.style.display = "block";
-telaJogo.style.display = "none";
-caixaPerguntas.style.display = "none";
-caixaAlternativas.style.display = "none";
-caixaResultado.style.display = "none";
+function mostraGameOver(mensagem) {
+	faseDaPartida = "gameover";
+	caixaPerguntas.style.display = "none";
+	caixaAlternativas.replaceChildren();
+	caixaAlternativas.style.display = "none";
+	caixaResultado.style.display = "block";
+	tituloResultado.textContent = "GAME OVER";
+	textoResultado.textContent =
+		mensagem + "\n\nSuas escolhas nesta tentativa:\n" + historiaFinal;
+	botaoJogarNovamente.textContent = "Recomeçar do início";
+}
+
+reiniciaJogo();

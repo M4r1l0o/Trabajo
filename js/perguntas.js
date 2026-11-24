@@ -85,8 +85,12 @@ export const perguntas = [
 			},
 			{
 				texto: "Inventar uma fonte e apresentá-la como verdadeira.",
-				afirmacao: ["Inventou uma fonte para sustentar a estimativa de economia."],
-				tipo: "gameover", disponivel: true
+				afirmacao: ["Inventou uma fonte para sustentar a resposta."],
+				tipo: "gameover",
+				disponivel: true,
+				mensagem:
+					"A fonte inventada foi identificada e o trabalho foi " +
+					"invalidado. Você falhou na missão e precisa recomeçar."
 			}
 		]
 	},
@@ -130,9 +134,13 @@ export const perguntas = [
 				tipo: "salto", proxima: 3
 			},
 			{
-				texto: "Prometer a mesma redução para todas as casas sem medir o consumo.",
-				afirmacao: ["Prometeu uma economia igual para todas as casas sem medições."],
-				tipo: "gameover", disponivel: true
+				texto: "Publicar dados pessoais dos colegas sem autorização.",
+				afirmacao: ["Expôs dados pessoais dos colegas sem autorização."],
+				tipo: "gameover",
+				disponivel: true,
+				mensagem:
+					"A divulgação expôs os colegas e seu projeto foi suspenso. " +
+					"Você falhou na missão e precisa recomeçar."
 			}
 		]
 	},
@@ -176,9 +184,13 @@ export const perguntas = [
 				tipo: "salto", proxima: 2
 			},
 			{
-				texto: "Acusar um morador de desperdiçar água sem qualquer prova.",
-				afirmacao: ["Acusou um morador de desperdício sem provas."],
-				tipo: "gameover", disponivel: true
+				texto: "Acusar publicamente um colega sem qualquer prova.",
+				afirmacao: ["Acusou um colega publicamente sem provas."],
+				tipo: "gameover",
+				disponivel: true,
+				mensagem:
+					"A acusação sem provas prejudicou um colega e interrompeu a " +
+					"investigação. Você falhou na missão e precisa recomeçar."
 			}
 		]
 	},
@@ -223,9 +235,14 @@ export const perguntas = [
 				tipo: "salto", proxima: 7
 			},
 			{
-				texto: "Divulgar uma economia garantida sem comprovar o resultado.",
-				afirmacao: ["Divulgou uma promessa de economia sem comprovação."],
-				tipo: "gameover", disponivel: true
+				texto: "Criar outro áudio falso e divulgá-lo como verdadeiro.",
+				afirmacao: ["Criou e divulgou outro áudio falso como verdadeiro."],
+				tipo: "gameover",
+				disponivel: true,
+				mensagem:
+					"O novo áudio falso causou mais desinformação e a campanha " +
+					"foi interrompida. Você falhou na missão e precisa " +
+					"recomeçar."
 			}
 		]
 	},
@@ -246,9 +263,14 @@ export const perguntas = [
 				tipo: "salto", proxima: 9
 			},
 			{
-				texto: "Publicar a conta de água de um morador sem autorização.",
-				afirmacao: ["Expôs a conta de água de um morador sem autorização."],
-				tipo: "gameover", disponivel: true
+				texto: "Expor conversas privadas de moradores sem autorização.",
+				afirmacao: ["Expôs conversas privadas de moradores sem autorização."],
+				tipo: "gameover",
+				disponivel: true,
+				mensagem:
+					"A exposição das conversas privadas encerrou sua " +
+					"participação na campanha. Você falhou na missão e precisa " +
+					"recomeçar."
 			}
 		]
 	},

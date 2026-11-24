@@ -429,6 +429,14 @@ h1 {
 	font-weight: 700;
 }
 
+.titulo-resultado {
+	margin: 0 0 15px;
+	color: var(--coral);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 30px;
+	line-height: 1.1;
+}
+
 .history-dot {
 	width: 8px;
 	height: 8px;
@@ -442,6 +450,10 @@ h1 {
 	font-family: Georgia, "Times New Roman", serif;
 	font-size: 17px;
 	line-height: 1.65;
+}
+
+.texto-resultado {
+	white-space: pre-line;
 }
 
 .continuation {
