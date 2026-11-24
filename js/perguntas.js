@@ -274,20 +274,22 @@ export const perguntas = [
 			}
 		]
 	},
-	{ // 11 — ponto de continuidade da narrativa A
+	{ // 11 — final da narrativa A
 		caminho: "A",
-		pausa: true,
+		final: "vitoria",
 		enunciado:
-			"Etapa concluída! Seu material está pronto para a apresentação na escola. " +
-			"O próximo desafio será compartilhar suas propostas.",
+			"Você apresentou seu trabalho à escola, explicou os benefícios " +
+			"e os limites da IA e demonstrou os cuidados necessários. " +
+			"A missão foi concluída com sucesso. Você venceu!",
 		alternativas: []
 	},
-	{ // 12 — ponto de continuidade da narrativa B
+	{ // 12 — final da narrativa B
 		caminho: "B",
-		pausa: true,
+		final: "vitoria",
 		enunciado:
-			"Etapa concluída! Suas orientações estão prontas para o encontro com os " +
-			"moradores. O próximo desafio será compartilhar as dicas.",
+			"Você apresentou o esclarecimento da escola aos moradores " +
+			"e ensinou como verificar conteúdos suspeitos. " +
+			"A missão foi concluída com sucesso. Você venceu!",
 		alternativas: []
 	}
 ];

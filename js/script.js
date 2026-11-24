@@ -68,12 +68,14 @@ function mostraPergunta() {
 	progressoEtapa.textContent = `${etapaAtual} / 5`;
 	trilhaProgresso.setAttribute("aria-valuenow", etapaAtual);
 	preenchimentoProgresso.style.width = `${etapaAtual * 20}%`;
-	caixaPerguntas.textContent = perguntaAtual.enunciado.replace(/você/gi, nome);
-	caixaAlternativas.replaceChildren();
 
-	if (perguntaAtual.pausa === true) {
+	if (perguntaAtual.final === "vitoria") {
+		mostraVitoria(perguntaAtual.enunciado);
 		return;
 	}
+
+	caixaPerguntas.textContent = perguntaAtual.enunciado.replace(/você/gi, nome);
+	caixaAlternativas.replaceChildren();
 
 	for (const alternativa of perguntaAtual.alternativas) {
 		const botao = document.createElement("button");
@@ -138,6 +140,22 @@ function mostraGameOver(mensagem) {
 	textoResultado.textContent =
 		mensagem + "\n\nSuas escolhas nesta tentativa:\n" + historiaFinal;
 	botaoJogarNovamente.textContent = "Recomeçar do início";
+}
+
+function mostraVitoria(mensagem) {
+	if (faseDaPartida !== "jogando" || perguntas[atual].final !== "vitoria") {
+		return;
+	}
+
+	faseDaPartida = "vitoria";
+	caixaPerguntas.style.display = "none";
+	caixaAlternativas.replaceChildren();
+	caixaAlternativas.style.display = "none";
+	caixaResultado.style.display = "block";
+	tituloResultado.textContent = "THE END";
+	textoResultado.textContent =
+		mensagem + "\n\nSeu percurso nesta partida:\n" + historiaFinal;
+	botaoJogarNovamente.textContent = "Jogar novamente";
 }
 
 reiniciaJogo();
